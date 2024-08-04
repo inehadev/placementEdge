@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Checkbox } from '@/components/ui/checkbox'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import axios from 'axios'
 import { z } from "zod"
@@ -12,7 +13,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useToast } from '@/components/ui/use-toast'
 
-const page = () => {
+const Page = () => {
 
   const { toast } = useToast();
 
@@ -31,7 +32,7 @@ const page = () => {
     try {
       const response = await axios.post('/api/sign-up', data)
       toast({
-        title: 'Success',
+        title: "Success",
         description: response.data.message
       })
 
@@ -40,7 +41,7 @@ const page = () => {
     } catch (error) {
       console.error("signup errror", error)
       toast({
-        title: 'False',
+        title: "False",
         description: "SignUp Failed"
       })
 
@@ -51,7 +52,8 @@ const page = () => {
     <>
       <div className=' flex justify-start bg-blue-600  h-screen w-full gap-32 items-center  '>
         <div className=' '>
-          <img src="sign-up.png" alt="" className='h-screen  ml-10 mt-6 w-full' />
+        <Image src="/sign-up.png" alt="" className="ml-10 mt-6 w-full"  height={300} width={400} />
+
         </div>
         <div className='justify-center items-center '>
           <h1 className='text-4xl text-white'>Sign-Up</h1>
@@ -125,4 +127,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
