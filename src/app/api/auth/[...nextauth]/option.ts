@@ -40,8 +40,9 @@ export const authOptions = {
                     console.log("User not found")
                     throw new Error("User not found");
                 }
-
+                
                 const isCorrectpassword = await bcrypt.compare(credentials.password , user.password)
+                
 
                 if(isCorrectpassword){
                     return user
