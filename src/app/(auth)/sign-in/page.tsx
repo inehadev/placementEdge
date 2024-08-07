@@ -1,35 +1,52 @@
 
 
 "use client"
-import React, { FormEvent, FormEventHandler, useState } from 'react'
+import React, { FormEvent, useEffect, useState } from 'react'
 import { Input } from "@/components/ui/input"
 import Image from 'next/image'
 import { Label } from "@/components/ui/label"
-import { Checkbox } from '@/components/ui/checkbox'
 import { Button } from '@/components/ui/button'
 import { signIn, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { FcGoogle } from "react-icons/fc";
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation';
 
 const Page = () => {
-
-  const[userInfo , setInfo ]=useState({email:"" , password:""})
-  const { data: session } = useSession();
-  console.log(session);
   const router = useRouter(); 
+  const[userInfo , setInfo ]=useState({email:"" , password:""})
+  const { data: session , status } = useSession();
+  console.log('session',session);
+  console.log('Session Status:', status);
+
+  useEffect(() => {
+    if (status === "authenticated") {
+      console.log("User is authenticated, redirecting...");
+      router.replace('/'); // Redirect to the desired page
+    }
+  }, [status, router]);
+ 
 
   const onSubmit=async(e:FormEvent)=>{
     e.preventDefault();
+   try {
     const res= await signIn("credentials" , {
       email:userInfo.email,
       password:userInfo.password,
       redirect:false
+      
     })
-    console.log(res);
-    if (res?.ok) {
-      router.push('/'); 
-    }
+    console.log('Sign-in response:', res);
+
+    // if (status === "authenticated") {
+    //   console.log("User is authenticated, redirecting...");
+    //   router.replace('/'); // Redirect to the homepage or another secure page
+    // }
+    // else {
+    //   console.error("Sign-in failed:", res?.error);
+    // }
+   } catch (error) {
+    console.error("Error during sign-in:", error);
+  }
   
 
   }
@@ -65,7 +82,7 @@ const Page = () => {
 
         <Button className='w-full mt-5 ' onClick={onSubmit} >Sign In</Button>
 
-        <Button className='w-full mt-5' onClick={() => signIn("google")} ><FcGoogle size={20}/><p className='ml-4'>SignIn with google</p></Button>
+        <Button className='w-full mt-5' onClick={() => signIn("google")} ><FcGoogle size={20}/><p className='ml-4'>SignIn with Google</p></Button>
 
         <p className='mt-2'>
           Don't have an account? <Link href="/sign-up">Sign Up</Link>

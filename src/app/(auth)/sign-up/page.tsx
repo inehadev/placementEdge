@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import React, { useState } from 'react'
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -12,10 +12,12 @@ import { FormField, FormItem, FormLabel, FormControl, Form } from '@/components/
 import { useForm } from 'react-hook-form'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useToast } from '@/components/ui/use-toast'
+import { useRouter } from 'next/navigation'
 
 const Page = () => {
 
   const { toast } = useToast();
+  const router=useRouter();
 
   const form = useForm<z.infer<typeof signupSchema>>({
     resolver: zodResolver(signupSchema),
@@ -35,8 +37,8 @@ const Page = () => {
         title: "Success",
         description: response.data.message
       })
-
-
+     router.replace('/sign-in')
+       
 
     } catch (error) {
       console.error("signup errror", error)
