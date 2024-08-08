@@ -9,7 +9,7 @@ const Navbar = () => {
   const {data:session , status} =useSession();
   return (
     <>
-    <header className='flex justify-evenly sticky items-center bg-white h-[70px]  text-green-900 '>
+    <header className='flex justify-evenly sticky items-center bg-green-900 h-[70px]  text-white '>
       <div className='mr-32'><h1 className='  text-3xl font-normal font-style: italic text-center'>PlacementEdge</h1></div>
       <div className=' flex ml-32'>
       <Link className='ml-24 text-xl' href='/about'>About</Link>

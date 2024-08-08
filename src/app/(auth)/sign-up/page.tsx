@@ -52,17 +52,18 @@ const Page = () => {
   }
   return (
     <>
-      <div className=' flex justify-start bg-blue-600  h-screen w-full gap-32 items-center  '>
+      <div className=' flex justify-start  h-screen w-full gap-32 items-center  '>
         <div className=' '>
         <Image src="/sign-up.png" alt="" className="ml-10 mt-6 w-full"  height={300} width={400} />
 
         </div>
         <div className='justify-center items-center '>
-          <h1 className='text-4xl text-white'>Sign-Up</h1>
-          <p className='text-white opacity-70 mt-1'>Enroll here! to start your placement journey</p>
-
+          <h1 className='text-4xl text-green-950 font-medium'>Sign-Up</h1>
+          <p className='text-green-950 opacity-70 mt-1'>Enroll here! to start your placement journey</p>
+         
           <Form {...form} >
             <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-1 mt-2 '>
+            <div>
               <FormField
                 control={form.control}
                 name="username"
@@ -99,9 +100,9 @@ const Page = () => {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel className='text-green-950'>Password</FormLabel>
                     <FormControl>
-                      <Input placeholder="" {...field} />
+                      <Input placeholder="pasword" {...field} />
                     </FormControl>
 
 
@@ -109,10 +110,11 @@ const Page = () => {
                 )}
 
               />
+              </div>
 
-              <Button className='w-full mt-3 ' type='submit'>SignUp</Button>
+              <div className=''><Button className='w-full  text-white bg-green-950 ' type='submit'>SignUp</Button></div>
 
-              <p className='mt-2'>Already have an account? <a href='/sign-in'>SignIn</a></p>
+              <p className='mt-2 text-green-950'>Already have an account? <a href='/sign-in'>SignIn</a></p>
 
             </form>
           </Form>
