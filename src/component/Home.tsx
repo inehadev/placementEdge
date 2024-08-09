@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Search } from 'lucide-react'
 
+
 const Home = () => {
   return (
     <>
@@ -16,7 +17,7 @@ const Home = () => {
             <p className="text-green-900 font-bold text-5xl  ml-10">
               Achieve Your Excellence <br />with PlacementEdge
             </p>
-            <p className="text-green-800 font-light text-xl  ml-10 opacity-60 ">
+            <p className="text-green-950 font-medium text-xl  ml-10 opacity-65 ">
               From aptitude tests to real-world projects, we <br /> 
               provide everything you need to succeed in the <br />
               competitive job market.

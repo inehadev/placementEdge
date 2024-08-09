@@ -13,6 +13,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useToast } from '@/components/ui/use-toast'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 const Page = () => {
 
@@ -37,7 +38,7 @@ const Page = () => {
         title: "Success",
         description: response.data.message
       })
-     router.replace('/sign-in')
+     router.replace("/sign-in")
        
 
     } catch (error) {
@@ -53,8 +54,9 @@ const Page = () => {
   return (
     <>
       <div className=' flex justify-start  h-screen w-full gap-32 items-center  '>
-        <div className=' '>
-        <Image src="/sign-up.png" alt="" className="ml-10 mt-6 w-full"  height={300} width={400} />
+        <div className='bg-green-950 w-[800px]  h-screen justify-center items-center'>
+        <Link href={"/"}><h1 className='text-center text-white opacity-60 text-4xl mt-[7%]'>PLACEMENTEDGE</h1></Link>
+        <Image src="/sign-up.png" alt="" className='ml-[7%]'  height={300} width={500} />
 
         </div>
         <div className='justify-center items-center '>
@@ -112,7 +114,7 @@ const Page = () => {
               />
               </div>
 
-              <div className=''><Button className='w-full  text-white bg-green-950 ' type='submit'>SignUp</Button></div>
+              <div className=''><Button className='w-full  text-white bg-green-950   hover:bg-white hover:text-green-950' type='submit'>SignUp</Button></div>
 
               <p className='mt-2 text-green-950'>Already have an account? <a href='/sign-in'>SignIn</a></p>
 
