@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { Target } from 'lucide-react';
 import { Rocket } from 'lucide-react';
+import Link from 'next/link';
 
 const DevelopmentDrive = () => {
     return (
@@ -28,7 +29,7 @@ const DevelopmentDrive = () => {
                     <Target className=' text-white opacity-55 ml-[80%]  mt-3' size={30} />
                     <h1 className='text-2xl text-white mt-14 ml-7 opacity-80 font-medium '>Aptitude Mastery</h1>
                     <p className='text-white opacity-60 m-3 ml-7 font-medium'>Enhance your logical reasoning and  <br />  problem-solving abilities to excel in placement tests.</p>
-                    <Button className='ml-7 bg-white opacity-55 text-green-950  hover:bg-white hover:text-green-950 text-md'>Get Started <ArrowRight className='ml-1' size={20} /></Button>
+                  <Link href={"/apptitude-mastry"}>  <Button className='ml-7 bg-white opacity-55 text-green-950  hover:bg-white hover:text-green-950 text-md'>Get Started <ArrowRight className='ml-1' size={20} /></Button></Link>
 
                 </div>
 
