@@ -2,7 +2,7 @@
 import Navbar from '@/component/Navbar'
 import React, { useEffect, useState } from 'react'
 
-const page = () => {
+const Page = () => {
     const [image, setImage] = useState<string | null>(null);
 
     useEffect(() => {
@@ -50,4 +50,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page

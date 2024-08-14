@@ -88,7 +88,7 @@ const Page = () => {
         <Button className='w-full mt-5 bg-green-950 text-white hover:bg-white hover:text-green-950' onClick={() => signIn("google")} ><FcGoogle size={20}/><p className='ml-4'>SignIn with Google</p></Button>
 
         <p className='mt-2 text-green-950'>
-          Don't have an account? <Link href="/sign-up">Sign Up</Link>
+          Dont have an account? <Link href="/sign-up">Sign Up</Link>
         </p>
       </div>
     </div>
