@@ -1,9 +1,8 @@
 import React from 'react'
 import Navbar from './Navbar'
-import { Button } from '@/components/ui/button'
-import { ArrowRight } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Search } from 'lucide-react'
+import Link from 'next/link'
 
 
 const Home = () => {
@@ -22,8 +21,9 @@ const Home = () => {
               provide everything you need to succeed in the <br />
               competitive job market.
             </p>
-            <div className='ml-10 mt-4 flex  border border-green-950 rounded-md w-[80%]' ><Input type='text'  placeholder='Ask your Placement doubt... ' className=' border-none focus:outline-none '/> <Search size={28} className='mt-1 mr-2'/></div>
+           <div className='ml-10 mt-4 flex  border border-green-950 rounded-md w-[80%]' ><Input type='text'  placeholder='Ask your Placement doubt... ' className=" outline-none border-none bg-transparent "/> <Link href={'/ai-response'}> <Search size={28} className='mt-1 mr-2'/></Link></div> 
           </div>
+         
           <div className="flex justify-center items-center ">
             <img src="/student.png" alt="student" className="h-[570px] mr-14 " />
           </div>

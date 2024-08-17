@@ -1,87 +1,74 @@
 "use client"
-import {useChat} from "ai/react"
+
+import Navbar from "@/component/Navbar";
 import { Button } from "@/components/ui/button"
+import axios from "axios";
+import { useState } from "react";
+
 
 
 const Page = () => {
-    
-    const {input , handleSubmit  , handleInputChange , messages , isLoading}=useChat();
-      console.log(messages)
-      console.log(input)
 
-      
+  const [question, setQuestion] = useState("");
+  const [answer, setAnswer] = useState("")
+  const [loading, setloading] = useState(false);
+
+
+  async function generateAnswer() {
+    try {
+      setloading(true);
+      const response = await axios({
+        url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${process.env.NEXT_PUBLIC_GEMINI_API}`, // Ensure to use NEXT_PUBLIC_ for exposing API keys to the client side
+        method: "POST",
+        data: {
+          contents: [{ parts: [{ text: question }] }]
+        }
+      });
+      console.log("API data:", response.data);
+
+
+      const generatedText = response.data?.candidates?.[0]?.content?.parts?.[0]?.text || "No response generated.";
+
+      setAnswer(generatedText);
+      setloading(false);
+    } catch (error) {
+      console.error("Error generating answer:", error);
+      setAnswer("Failed to generate an answer. Please try again.");
+    }
+  }
+
+ 
+
   return (
-    <div>
-        <div className="text-lg font-semibold">
-         i am your assistant
+    <>
+
+      <Navbar />
+       {loading && (
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-50 z-50">
+          <div className="text-white text-lg">Loading...</div>
         </div>
-        <form className="ml-12" onSubmit={handleSubmit} >
-            <p>user message</p>
-            <textarea className="mt-12 w-full bg-slate-100" value={input} onChange={handleInputChange}/>
-            <Button type="submit" className="bg-green-950 text-white">Send message</Button>
-        </form>
-    </div>
+      )}
+
+      <div className="flex-col min-h-screen   ">
+        <div className="text-lg font-semibold text-center mt-5 ">
+          <h2 className="text-3xl text-green-950">  I am your Placement Assistant</h2>
+        </div>
+        <div className="m-5 font-normal"><pre className="text-center items-center mb-24">{answer}</pre></div>
+
+
+        <div className="fixed bottom-0 left-0 right-0 mx-20 mb-5 flex ">
+          <textarea className="w-full border border-green-950 rounded-md  px-5 py-1 " value={question} placeholder="ask your placement doubt..?" onChange={(e) => { setQuestion(e.target.value) }} />
+          <Button type="submit" className="bg-green-950 text-white ml-3 mt-2" onClick={generateAnswer}>Get answer</Button></div>
+
+
+
+      </div>
+
+    </>
+
+
   )
 }
 
 export default Page
-
-
-
-
-// components/AskPlacementDoubt.tsx
-
-// import { useState } from 'react';
-
-// const AskPlacementDoubt: React.FC = () => {
-//   const [question, setQuestion] = useState('');
-//   const [response, setResponse] = useState<string | null>(null);
-//   const [loading, setLoading] = useState(false);
-
-//   const handleSubmit = async (event: React.FormEvent) => {
-//     event.preventDefault();
-//     setLoading(true);
-
-//     try {
-//       const res = await fetch('/api/askPlacementDoubt', {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({ question })
-//       });
-
-//       if (!res.ok) {
-//         throw new Error('Network response was not ok.');
-//       }
-
-//       const text = await res.text();
-//       setResponse(text);
-//     } catch (error) {
-//       console.error('Error:', error);
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <form onSubmit={handleSubmit}>
-//         <textarea
-//           value={question}
-//           onChange={(e) => setQuestion(e.target.value)}
-//           placeholder="Ask your placement doubt here"
-//           rows={4}
-//           cols={50}
-//         />
-//         <button type="submit" disabled={loading}>
-//           {loading ? 'Loading...' : 'Submit'}
-//         </button>
-//       </form>
-//       {response && <div><h3>Response:</h3><p>{response}</p></div>}
-//     </div>
-//   );
-// };
-
-// export default AskPlacementDoubt;
 
