@@ -1,21 +1,19 @@
 import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
+import { NextResponse } from 'next/server';
 
-const apiKey = process.env.PDF_API; 
+const apiKey = process.env.PDF_API;
 
-
-export async function POST(request:Request) {
-  console.log("working")
+export async function POST(request: Request) {
+  console.log("Working...");
   const pdfPath = path.join(process.cwd(), 'public', 'verbal_ ability.pdf');
   console.log('Resolved PDF Path:', pdfPath);
-  
+
   try {
- 
     const fileData = fs.readFileSync(pdfPath);
     const base64Pdf = Buffer.from(fileData).toString('base64');
 
-   
     const response = await axios.post(
       'https://api.pdf.co/v1/pdf/convert/to/json',
       {
@@ -30,14 +28,36 @@ export async function POST(request:Request) {
       }
     );
 
-  return Response.json({
-    status:200,
-    message:"pdf data is sucessfully extracted ",
-    response: response.data
-  })
+    return NextResponse.json({
+      status: 200,
+      message: "PDF data is successfully extracted",
+      response: response.data,
+    });
   } catch (error) {
     console.error('Error extracting PDF data:', error);
- 
+
+    if (axios.isAxiosError(error)) {
+      // Handle Axios-specific errors
+      return NextResponse.json({
+        status: 500,
+        message: 'Error extracting PDF data',
+        error: error.response ? error.response.data : error.message,
+      });
+    } else if (error instanceof Error) {
+      // Handle other errors
+      return NextResponse.json({
+        status: 500,
+        message: 'An unexpected error occurred',
+        error: error.message,
+      });
+    } else {
+      // Handle unknown error types
+      return NextResponse.json({
+        status: 500,
+        message: 'An unknown error occurred',
+        error: 'Unknown error',
+      });
+    }
   }
 }
 
