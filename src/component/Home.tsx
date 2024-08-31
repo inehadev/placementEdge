@@ -21,7 +21,7 @@ const Home = () => {
               provide everything you need to succeed in the <br />
               competitive job market.
             </p>
-           <div className='ml-10 mt-4 flex  border border-green-950 rounded-md w-[80%]' ><Input type='text'  placeholder='Ask your Placement doubt... ' className=" outline-none border-none bg-transparent "/> <Link href={'/ai-response'}> <Search size={28} className='mt-1 mr-2'/></Link></div> 
+           <div className='ml-10 mt-12 flex  border border-green-950 rounded-md w-[80%]' ><Input type='text'  placeholder='Ask your Placement doubt... ' className=" outline-none border-none bg-transparent "/> <Link href={'/ai-response'}> <Search size={28} className='mt-1 mr-2'/></Link></div> 
           </div>
          
           <div className="flex justify-center items-center ">
