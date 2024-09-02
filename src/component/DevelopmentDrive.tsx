@@ -21,7 +21,7 @@ const DevelopmentDrive = () => {
                     <GraduationCap className=' text-white opacity-55 ml-[80%]  mt-3' size={30} />
                     <h1 className='text-2xl text-white mt-14 ml-7 opacity-80 font-medium '>DSA Essentials</h1>
                     <p className='text-white opacity-60 m-3 ml-7 font-medium'>Master Data Structures and Algorithms <br /> to crack coding interviews with confidence.</p>
-                    <Button className='ml-7 bg-white opacity-55 text-green-950  hover:bg-white hover:text-green-950 text-md'>Get Started <ArrowRight className='ml-1' size={20} /></Button>
+                    <Link href={"/ai-response"}>     <Button className='ml-7 bg-white opacity-55 text-green-950  hover:bg-white hover:text-green-950 text-md'>Get Started <ArrowRight className='ml-1' size={20} /></Button></Link>
 
                 </div>
 
@@ -29,7 +29,7 @@ const DevelopmentDrive = () => {
                     <Target className=' text-white opacity-55 ml-[80%]  mt-3' size={30} />
                     <h1 className='text-2xl text-white mt-14 ml-7 opacity-80 font-medium '>Aptitude Mastery</h1>
                     <p className='text-white opacity-60 m-3 ml-7 font-medium'>Enhance your logical reasoning and  <br />  problem-solving abilities to excel in placement tests.</p>
-                  <Link href={"/apptitude-mastry"}>  <Button className='ml-7 bg-white opacity-55 text-green-950  hover:bg-white hover:text-green-950 text-md'>Get Started <ArrowRight className='ml-1' size={20} /></Button></Link>
+                  <Link href={"/ai-response"}>  <Button className='ml-7 bg-white opacity-55 text-green-950  hover:bg-white hover:text-green-950 text-md'>Get Started <ArrowRight className='ml-1' size={20} /></Button></Link>
 
                 </div>
 
@@ -37,7 +37,7 @@ const DevelopmentDrive = () => {
                     <Rocket className=' text-white opacity-55 ml-[80%]  mt-3' size={30} />
                     <h1 className='text-2xl text-white mt-14 ml-7 opacity-80 font-medium '>Project Hub</h1>
                     <p className='text-white opacity-60 m-3 ml-7 font-medium'>Build real-world projects to showcase <br /> your  skills and stand out confidently in interviews.</p>
-                    <Button className='ml-7 bg-white opacity-55 text-green-950  hover:bg-white hover:text-green-950 text-md '  >Get Started <ArrowRight className='ml-1' size={20} /></Button>
+                    <Link href={"/ai-response"}>  <Button className='ml-7 bg-white opacity-55 text-green-950  hover:bg-white hover:text-green-950 text-md '  >Get Started <ArrowRight className='ml-1' size={20} /></Button></Link>
 
                 </div>
 
