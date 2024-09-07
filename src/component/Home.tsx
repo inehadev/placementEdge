@@ -8,9 +8,9 @@ import Link from 'next/link'
 const Home = () => {
   return (
     <>
-      <Navbar />
+     
 
-      <div className="relative w-full h-screen" style={{ backgroundImage: "url('/desktop.svg')" }} >
+      <div className="relative w-full h-screen bg-no-repeat bg-cover" style={{ backgroundImage: "url('/desktop.svg')" }}   >
         <div className="flex justify-around">
         <div className="flex-grow flex flex-col gap-5 justify-center items-start ml-44">
             <p className="text-green-900 font-bold text-5xl  ml-10">
@@ -25,7 +25,7 @@ const Home = () => {
           </div>
          
           <div className="flex justify-center items-center ">
-            <img src="/student.png" alt="student" className="h-[570px] mr-14 " />
+            <img src="/student.png" alt="student" className="h-[570px] mr-14 sm:mr-3 " />
           </div>
         </div>
       </div>

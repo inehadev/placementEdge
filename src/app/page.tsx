@@ -6,12 +6,17 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div >
-      
+ 
+      <>
+       <main className='flex-grow flex flex-col item-center  items-center justify-center '>
+       
+       <Navbar />
       <Home/>
       <DevelopmentDrive/>
+      </main>
       <Footer/>
-    </div>
+      </>
+   
   )
 }
 
