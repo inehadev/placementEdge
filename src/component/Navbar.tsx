@@ -9,15 +9,17 @@ const Navbar = () => {
   return (
     <>
     <header className='flex flex-col sm:flex-row  justify-evenly sticky items-center bg-green-900 h-[70px] w-full text-white '>
-      <div className='lg:mr-32  md:mr-28 sm:mr-2'><h1 className='  text-3xl font-normal font-style: italic text-center'>PlacementEdge</h1></div>
-      <div className=' flex ml-32 md:ml-24 sm:ml-10'>
-      <Link className='lg:ml-24 md:ml-20 sm:7 text-xl' href='/about'>About</Link>
+      <div className='text-center mb-4 sm:mb-0'>
+        <h1 className='  text-2xl sm:text-3xl font-normal font-style: italic text-center'>PlacementEdge</h1>
+        </div>
+      <div className=' flex flex-col sm:flex-row items-center'>
+      <Link className='text-xl mb-2 sm:mb-0 sm:mr-4' href='/about'>About</Link>
         {!session ? (
-          <Link className='lg:ml-12 md:9 sm:ml-5 text-xl' href='/sign-up'>Sign Up</Link>
+          <Link className='text-xl mb-2 sm:mb-0' href='/sign-up'>Sign Up</Link>
         ) : (
-          <div className='lg:ml-12 md:9 sm:5 text-xl flex'>
+          <div className='text-xl flex items-center'>
             <span>Welcome, {session.user?.name || 'User'}!</span>
-            <Link className='lg:ml-4 md:2 sm:1 text-xl' href='/api/auth/signout'>Sign Out</Link>
+            <Link className=' text-xl' href='/api/auth/signout'>Sign Out</Link>
           </div>
         )}
         

@@ -9,13 +9,14 @@ import Link from 'next/link';
 const DevelopmentDrive = () => {
     return (
         <>
-            <div>
+        <section className='p-4'>
+            <div className='text-center'>
                 <h1 className='text-4xl text-start mt-4  ml-[8%] text-green-950 font-semibold'>Success Framework</h1>
                 <h6 className='text-lg text-green-950 text-start font-medium ml-[8%] opacity-60 mt-3'>Develop crucial skills in Aptitude, Projects, and DSA to build a strong foundation for  <br />
                     successful placements and career growth.🎓</h6>
             </div>
 
-            <div className='flex  justify-center gap-14 mt-10 ml-10 mb-10' >
+            <div className='flex sm:flex-row justify-center gap-14 mt-10 ml-10 mb-10' >
 
                 <div className='h-[300px] w-[350px] bg-green-900 justify-center text-start  items-center rounded-md'>
                     <GraduationCap className=' text-white opacity-55 ml-[80%]  mt-3' size={30} />
@@ -43,6 +44,7 @@ const DevelopmentDrive = () => {
 
 
             </div>
+            </section>
         </>
     )
 }

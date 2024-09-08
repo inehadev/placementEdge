@@ -10,9 +10,9 @@ const Home = () => {
     <>
      
 
-      <div className="relative w-full h-screen bg-no-repeat bg-cover" style={{ backgroundImage: "url('/desktop.svg')" }}   >
-        <div className="flex justify-around">
-        <div className="flex-grow flex flex-col gap-5 justify-center items-start ml-44">
+      <section className="relative w-full h-screen bg-no-repeat bg-cover" style={{ backgroundImage: "url('/desktop.svg')" }}   >
+        <div className="flex flex-col sm:flex-row items-center justify-between p-4">
+        <div className="flex-grow flex flex-col gap-5 justify-center items-start lg:ml-24 md:ml-20 sm:ml-4">
             <p className="text-green-900 font-bold text-5xl  ml-10">
               Achieve Your Excellence <br />with PlacementEdge
             </p>
@@ -25,10 +25,10 @@ const Home = () => {
           </div>
          
           <div className="flex justify-center items-center ">
-            <img src="/student.png" alt="student" className="h-[570px] mr-14 sm:mr-3 " />
+            <img src="/student.png" alt="student" className="h-[570px] max-w-full  " />
           </div>
         </div>
-      </div>
+      </section>
     </>
   )
 }
