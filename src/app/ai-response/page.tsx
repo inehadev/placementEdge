@@ -8,9 +8,9 @@ import { Groq} from "groq-sdk";
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 const Page = () => {
-  const [question, setQuestion] = useState<string>(""); 
-  const [answer, setAnswer] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(false);
+  const [question, setQuestion] = useState(""); 
+  const [answer, setAnswer] = useState("");
+  const [loading, setLoading] = useState(false);
  
   interface Message {
     role: "system" | "user"; 
