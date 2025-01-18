@@ -23,6 +23,7 @@
     "dotenv": "^16.4.5",
     "gemini-ai": "^2.2.1",
     "gemini-api": "^2.0.4",
+    "groq-sdk": "^0.12.0",
     "lucide-react": "^0.421.0",
     "mongoose": "^8.5.2",
     "next": "14.2.5",

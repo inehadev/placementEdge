@@ -29,3 +29,11 @@ async function dbConnect():Promise<void>{
 }
 
 export default dbConnect;
+
+
+// MONGO_URL="mongodb+srv://7087330257n:1019395055@clusterfornext.glubvk1.mongodb.net/?retryWrites=true&w=majority&appName=ClusterForNext"
+// GOOGLE_CLIENT_ID="538000698374-jbs5dfums0lnkd76bkp0s8c0l404aej3.apps.googleusercontent.com"
+// GOOGLE_CLIENT_SECRET="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"
+// NEXT_PUBLIC_GEMINI_API ="AIzaSyAQRP69XwS-PQfEG-wfVpJmmRA_xmJOINA"
+// PDF_API="7087330257n@gmail.com_vLNMRaYDlqjyfKAbx6VgpjIel05T22EJKczGmNAWtg0Uh7MhsvUR6R21UfgqzqU1"
+// NEXT_PUBLIC_BASE_URL=http://localhost:3000
